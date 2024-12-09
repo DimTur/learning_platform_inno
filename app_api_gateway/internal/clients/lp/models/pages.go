@@ -18,6 +18,7 @@ type CreateVideoPage struct {
 	VideoFileUrl string `json:"video_file_url" validate:"required"`
 	VideoName    string `json:"video_name" validate:"required"`
 }
+
 type CreatePDFPage struct {
 	CreateBasePage
 	PdfFileUrl string `json:"pdf_file_url" validate:"required"`
@@ -25,8 +26,8 @@ type CreatePDFPage struct {
 }
 
 type CreatePageResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type GetPage struct {
@@ -49,20 +50,20 @@ type BasePage struct {
 
 type ImagePage struct {
 	BasePage
-	ImageFileUrl string
-	ImageName    string
+	ImageFileUrl string `json:"image_file_url"`
+	ImageName    string `json:"image_name"`
 }
 
 type VideoPage struct {
 	BasePage
-	VideoFileUrl string
-	VideoName    string
+	VideoFileUrl string `json:"video_file_url"`
+	VideoName    string `json:"video_name"`
 }
 
 type PDFPage struct {
 	BasePage
-	PdfFileUrl string
-	PdfName    string
+	PdfFileUrl string `json:"pdf_file_url"`
+	PdfName    string `json:"pdf_name"`
 }
 
 type GetPages struct {
@@ -101,8 +102,8 @@ type UpdatePDFPage struct {
 }
 
 type UpdatePageResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type DeletePage struct {
@@ -114,5 +115,5 @@ type DeletePage struct {
 }
 
 type DeletePageResponse struct {
-	Success bool
+	Success bool `json:"success"`
 }

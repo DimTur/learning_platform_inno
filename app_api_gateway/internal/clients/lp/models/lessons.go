@@ -9,8 +9,8 @@ type CreateLesson struct {
 }
 
 type CreateLessonResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type GetLesson struct {
@@ -21,13 +21,13 @@ type GetLesson struct {
 }
 
 type GetLessonResponse struct {
-	ID             int64
-	Name           string
-	Description    string
-	CreatedBy      string
-	LastModifiedBy string
-	CreatedAt      string
-	Modified       string
+	ID             int64  `json:"id"`
+	Name           string `json:"name"`
+	Description    string `json:"description"`
+	CreatedBy      string `json:"created_by"`
+	LastModifiedBy string `json:"last_modified_by"`
+	CreatedAt      string `json:"created_at"`
+	Modified       string `json:"modified"`
 }
 
 type GetLessons struct {
@@ -48,8 +48,8 @@ type UpdateLesson struct {
 }
 
 type UpdateLessonResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type DeleteLesson struct {
@@ -60,5 +60,5 @@ type DeleteLesson struct {
 }
 
 type DeleteLessonResponse struct {
-	Success bool
+	Success bool `json:"success"`
 }

@@ -8,8 +8,8 @@ type CreateChannel struct {
 }
 
 type CreateChannelResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type GetChannel struct {
@@ -24,26 +24,26 @@ type GetChannelFull struct {
 }
 
 type GetChannelResponse struct {
-	Id             int64
-	Name           string
-	Description    string
-	CreatedBy      string
-	LastModifiedBy string
-	CreatedAt      string
-	Modified       string
-	Plans          []*Plan
+	Id             int64   `json:"id"`
+	Name           string  `json:"name"`
+	Description    string  `json:"description"`
+	CreatedBy      string  `json:"created_by"`
+	LastModifiedBy string  `json:"last_modified_by"`
+	CreatedAt      string  `json:"created_at"`
+	Modified       string  `json:"modified"`
+	Plans          []*Plan `json:"plans"`
 }
 
 type Plan struct {
-	Id             int64
-	Name           string
-	Description    string
-	CreatedBy      string
-	LastModifiedBy string
-	IsPublished    bool
-	Public         bool
-	CreatedAt      string
-	Modified       string
+	Id             int64  `json:"id"`
+	Name           string `json:"name"`
+	Description    string `json:"description"`
+	CreatedBy      string `json:"created_by"`
+	LastModifiedBy string `json:"last_modified_by"`
+	IsPublished    bool   `json:"is_published"`
+	Public         bool   `json:"public"`
+	CreatedAt      string `json:"created_at"`
+	Modified       string `json:"modified"`
 }
 
 type GetChannels struct {
@@ -60,13 +60,13 @@ type GetChannelsFull struct {
 }
 
 type Channel struct {
-	ID             int64
-	Name           string
-	Description    string
-	CreatedBy      string
-	LastModifiedBy string
-	CreatedAt      string
-	Modified       string
+	ID             int64  `json:"id"`
+	Name           string `json:"name"`
+	Description    string `json:"description"`
+	CreatedBy      string `json:"created_by"`
+	LastModifiedBy string `json:"last_modified_by"`
+	CreatedAt      string `json:"created_at"`
+	Modified       string `json:"modified"`
 }
 
 type UpdateChannel struct {
@@ -85,8 +85,8 @@ type UpdateChannelFull struct {
 }
 
 type UpdateChannelResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type DelChByID struct {
@@ -101,7 +101,7 @@ type DelChByIDFull struct {
 }
 
 type DelChByIDResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type SharingChannel struct {
@@ -118,7 +118,7 @@ type SharingChannelFull struct {
 }
 
 type SharingChannelResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type IsChannelCreator struct {
@@ -127,7 +127,7 @@ type IsChannelCreator struct {
 }
 
 type IsChannelCreatorResp struct {
-	IsCreator bool
+	IsCreator bool `json:"is_creator"`
 }
 
 type LerningGroupsShareWithChannel struct {
@@ -135,5 +135,5 @@ type LerningGroupsShareWithChannel struct {
 }
 
 type LerningGroupsShareWithChannelResp struct {
-	LearningGroupIDs []string
+	LearningGroupIDs []string `json:"learning_group_ids"`
 }

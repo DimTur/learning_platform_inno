@@ -9,8 +9,8 @@ type CreatePlan struct {
 }
 
 type CreatePlanResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type GetPlan struct {
@@ -20,15 +20,15 @@ type GetPlan struct {
 }
 
 type GetPlanResponse struct {
-	Id             int64
-	Name           string
-	Description    string
-	CreatedBy      string
-	LastModifiedBy string
-	IsPublished    bool
-	Public         bool
-	CreatedAt      string
-	Modified       string
+	Id             int64  `json:"id"`
+	Name           string `json:"name"`
+	Description    string `json:"description"`
+	CreatedBy      string `json:"created_by"`
+	LastModifiedBy string `json:"last_modified_by"`
+	IsPublished    bool   `json:"is_published"`
+	Public         bool   `json:"public"`
+	CreatedAt      string `json:"created_at"`
+	Modified       string `json:"modified"`
 }
 
 type GetPlans struct {
@@ -49,8 +49,8 @@ type UpdatePlan struct {
 }
 
 type UpdatePlanResponse struct {
-	ID      int64
-	Success bool
+	ID      int64 `json:"id"`
+	Success bool  `json:"success"`
 }
 
 type DelPlan struct {
@@ -60,7 +60,7 @@ type DelPlan struct {
 }
 
 type DelPlanResponse struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type SharePlan struct {
@@ -71,9 +71,9 @@ type SharePlan struct {
 }
 
 type SharingPlanResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type IsPlanShareWith struct {
-	IsShare bool
+	IsShare bool `json:"is_share"`
 }

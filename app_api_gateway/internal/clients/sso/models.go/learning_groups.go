@@ -9,7 +9,7 @@ type CreateLearningGroup struct {
 }
 
 type CreateLearningGroupResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type GetLgByID struct {
@@ -18,24 +18,24 @@ type GetLgByID struct {
 }
 
 type GetLgByIDResp struct {
-	Id          string
-	Name        string
-	CreatedBy   string
-	ModifiedBy  string
-	Learners    []*Learner
-	GroupAdmins []*GroupAdmins
+	Id          string         `json:"id"`
+	Name        string         `json:"name"`
+	CreatedBy   string         `json:"created_by"`
+	ModifiedBy  string         `json:"modified_by"`
+	Learners    []*Learner     `json:"learners"`
+	GroupAdmins []*GroupAdmins `json:"group_admins"`
 }
 
 type Learner struct {
-	Id    string
-	Email string
-	Name  string
+	Id    string `json:"id"`
+	Email string `json:"email"`
+	Name  string `json:"name"`
 }
 
 type GroupAdmins struct {
-	Id    string
-	Email string
-	Name  string
+	Id    string `json:"id"`
+	Email string `json:"email"`
+	Name  string `json:"name"`
 }
 
 type UpdateLearningGroup struct {
@@ -48,7 +48,7 @@ type UpdateLearningGroup struct {
 }
 
 type UpdateLearningGroupResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type DelLgByID struct {
@@ -57,7 +57,7 @@ type DelLgByID struct {
 }
 
 type DelLgByIDResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type GetLGroups struct {
@@ -65,16 +65,16 @@ type GetLGroups struct {
 }
 
 type GetLGroupsResp struct {
-	LearningGroups []*LearningGroup
+	LearningGroups []*LearningGroup `json:"learning_groups"`
 }
 
 type LearningGroup struct {
-	Id         string
-	Name       string
-	CreatedBy  string
-	ModifiedBy string
-	Created    string
-	Updated    string
+	Id         string `json:"id"`
+	Name       string `json:"name"`
+	CreatedBy  string `json:"created_by"`
+	ModifiedBy string `json:"modified_by"`
+	Created    string `json:"created"`
+	Updated    string `json:"updated"`
 }
 
 type IsGroupAdmin struct {
@@ -83,7 +83,7 @@ type IsGroupAdmin struct {
 }
 
 type IsGroupAdminResp struct {
-	IsGroupAdmin bool
+	IsGroupAdmin bool `json:"is_group_admin"`
 }
 
 type UserIsGroupAdminIn struct {

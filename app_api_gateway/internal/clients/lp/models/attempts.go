@@ -12,11 +12,11 @@ type QuestionPageAttempt struct {
 	PageID          int64  `json:"page_id" redis:"page_id"`
 	LessonAttemptID int64  `json:"lesson_attempt_id" redis:"lesson_attempt_id"`
 	IsCorrect       bool   `json:"is_correct" redis:"is_correct"`
-	UserAnswer      string `json:"user_answer,omitempty"`
+	UserAnswer      string `json:"user_answer,omitempty" redis:"user_answer"`
 }
 
 type TryLessonResp struct {
-	QuestionPageAttempts []QuestionPageAttempt
+	QuestionPageAttempts []QuestionPageAttempt `json:"question_page_attempts"`
 }
 
 type UpdatePageAttempt struct {
@@ -28,7 +28,7 @@ type UpdatePageAttempt struct {
 }
 
 type UpdatePageAttemptResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type CompleteLesson struct {
@@ -37,9 +37,9 @@ type CompleteLesson struct {
 }
 
 type CompleteLessonResp struct {
-	ID              int64
-	IsSuccessful    bool
-	PercentageScore int64
+	ID              int64 `json:"id"`
+	IsSuccessful    bool  `json:"is_successful"`
+	PercentageScore int64 `json:"percentage_score"`
 }
 
 type GetLessonAttempts struct {
@@ -50,23 +50,23 @@ type GetLessonAttempts struct {
 }
 
 type LessonAttempt struct {
-	ID              int64
-	UserID          string
-	LessonID        int64
-	PlanID          int64
-	ChannelID       int64
-	StartTime       string
-	EndTime         string
-	IsComplete      bool
-	IsSuccessful    bool
-	PercentageScore int64
+	ID              int64  `json:"id"`
+	UserID          string `json:"user_id"`
+	LessonID        int64  `json:"lesson_id"`
+	PlanID          int64  `json:"plan_id"`
+	ChannelID       int64  `json:"channel_id"`
+	StartTime       string `json:"start_time"`
+	EndTime         string `json:"end_time"`
+	IsComplete      bool   `json:"is_complete"`
+	IsSuccessful    bool   `json:"is_successful"`
+	PercentageScore int64  `json:"percentage_score"`
 }
 
 type GetLessonAttemptsResp struct {
-	LessonAttempts []LessonAttempt
+	LessonAttempts []LessonAttempt `json:"lesson_attempts"`
 }
 
 type LessonAttemptPermissions struct {
-	UserID          string
-	LessonAttemptID int64
+	UserID          string `json:"user_id"`
+	LessonAttemptID int64  `json:"lesson_attempt_id"`
 }

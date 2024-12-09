@@ -7,7 +7,7 @@ type RegisterUser struct {
 }
 
 type RegisterResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type LogIn struct {
@@ -16,8 +16,8 @@ type LogIn struct {
 }
 
 type LogInResp struct {
-	AccessToken  string
-	RefreshToken string
+	AccessToken  string `json:"access_token"`
+	RefreshToken string `json:"refresh_token"`
 }
 
 type LogInViaTg struct {
@@ -25,8 +25,8 @@ type LogInViaTg struct {
 }
 
 type LogInViaTgResp struct {
-	Success bool
-	Info    string
+	Success bool   `json:"success"`
+	Info    string `json:"info"`
 }
 
 type CheckOTPAndLogIn struct {
@@ -35,8 +35,8 @@ type CheckOTPAndLogIn struct {
 }
 
 type CheckOTPAndLogInResp struct {
-	AccessToken  string
-	RefreshToken string
+	AccessToken  string `json:"access_token"`
+	RefreshToken string `json:"refresh_token"`
 }
 
 type UpdateUserInfo struct {
@@ -48,7 +48,7 @@ type UpdateUserInfo struct {
 }
 
 type UpdateUserInfoResp struct {
-	Success bool
+	Success bool `json:"success"`
 }
 
 type RefreshToken struct {
@@ -56,7 +56,7 @@ type RefreshToken struct {
 }
 
 type RefreshTokenResp struct {
-	AccessToken string
+	AccessToken string `json:"access_token"`
 }
 
 type IsAdmin struct {
@@ -64,7 +64,7 @@ type IsAdmin struct {
 }
 
 type IsAdminResp struct {
-	IsAdmin bool
+	IsAdmin bool `json:"is_admin"`
 }
 
 type AuthCheck struct {
@@ -72,6 +72,6 @@ type AuthCheck struct {
 }
 
 type AuthCheckResp struct {
-	IsValid bool
-	UserID  string
+	IsValid bool   `json:"is_valid"`
+	UserID  string `json:"user_id"`
 }

@@ -2,7 +2,7 @@ server:
   host: "localhost"
   port: 8003
 telegram_bot:
-  tg_bot_token: "7388737325:AAHYztU7O3Ct4wYt_-bbQZztE2IGE7e30SU" #fake date
+  tg_bot_token: "" #fake date
   tg_bot_host: "api.telegram.org"
   batch_size: 100
 rabbit_mq:
