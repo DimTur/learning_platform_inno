@@ -1,0 +1,55 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sso-config
+data:
+  config.yaml: |
+    grpc_server:
+      address: ":8001"
+      timeout: "2s"
+    mongo_db:
+      url: "mongodb://test:test@mongo:27017/db_sso"
+      host: mongo
+      db_name: db_sso
+      username: test
+      password: test
+    rabbit_mq:
+      username: guest
+      password: guest
+      host: rabbitmq
+      port: 5672
+      chat:
+        chat_consumer:
+          queue: chat_id
+          consumer: ""
+          autoAck: false
+          exclusive: false
+          noLocal: false
+          noWait: false
+          args:
+            x-consumer-timeout: 60000
+            x-consumer-prefetch-count: 5
+      notification:
+        notification_consumer:
+          queue: notification_to_auth
+          consumer: ""
+          autoAck: false
+          exclusive: false
+          noLocal: false
+          noWait: false
+          args:
+            x-consumer-timeout: 60000
+            x-consumer-prefetch-count: 5
+        notification_routing_key: notification
+    redis:
+      host: redis
+      port: 6379
+      token_db: 0
+      otp_db: 1
+      password: ""
+    jwt:
+      issuer: auth-service
+      access_expires_in: 10h
+      refresh_expires_in: 30h
+      public_key: /sso/public_key.pem   
+      private_key: /sso/private_key.pem

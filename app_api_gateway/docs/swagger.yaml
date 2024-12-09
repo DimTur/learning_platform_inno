@@ -1,0 +1,3072 @@
+basePath: /
+definitions:
+  attemptshandler.LessonAttemptsResponse:
+    properties:
+      error:
+        type: string
+      lessonAttempts:
+        items:
+          $ref: '#/definitions/lpmodels.LessonAttempt'
+        type: array
+      status:
+        type: string
+    type: object
+  attemptshandler.TryLessonResponse:
+    properties:
+      error:
+        type: string
+      questionPageAttempts:
+        items:
+          $ref: '#/definitions/lpmodels.QuestionPageAttempt'
+        type: array
+      status:
+        type: string
+    type: object
+  attemptshandler.UpdatePageAttemptRequest:
+    properties:
+      page_id:
+        type: integer
+      question_page_attempt_id:
+        type: integer
+      user_answer:
+        type: string
+    required:
+    - page_id
+    - question_page_attempt_id
+    type: object
+  attemptshandler.UpdatePageAttemptResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  authhandler.CheckOTPAndLogInResponse:
+    properties:
+      accsessToken:
+        type: string
+      error:
+        type: string
+      refreshToken:
+        type: string
+      status:
+        type: string
+    type: object
+  authhandler.SingInByTgResponse:
+    properties:
+      error:
+        type: string
+      info:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  authhandler.SingInResponse:
+    properties:
+      accsessToken:
+        type: string
+      error:
+        type: string
+      refreshToken:
+        type: string
+      status:
+        type: string
+    type: object
+  authhandler.SingUpResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  authhandler.UpdateUserInfoReq:
+    properties:
+      email:
+        type: string
+      is_admin:
+        type: boolean
+      name:
+        type: string
+      tg_link:
+        type: string
+    type: object
+  authhandler.UpdateUserInfoResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  channelshandler.CreateChannelRequest:
+    properties:
+      description:
+        type: string
+      learning_group_id:
+        type: string
+      name:
+        type: string
+    required:
+    - learning_group_id
+    - name
+    type: object
+  channelshandler.CreateChannelResponse:
+    properties:
+      channel_id:
+        type: integer
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+  channelshandler.DeleteChannelResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  channelshandler.GetChannelResponse:
+    properties:
+      channel:
+        $ref: '#/definitions/lpmodels.GetChannelResponse'
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+  channelshandler.GetChannelsResponse:
+    properties:
+      channels:
+        items:
+          $ref: '#/definitions/lpmodels.Channel'
+        type: array
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+  channelshandler.ShareChannelRequest:
+    properties:
+      lgroup_ids:
+        items:
+          type: string
+        type: array
+    required:
+    - lgroup_ids
+    type: object
+  channelshandler.ShareChannelResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  channelshandler.UpdateChannelRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
+  learninggrouphandler.CreateLGroupResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  learninggrouphandler.CreateLearningGroupRequest:
+    properties:
+      name:
+        maxLength: 100
+        minLength: 3
+        type: string
+    required:
+    - name
+    type: object
+  learninggrouphandler.DeleteLGroupResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  learninggrouphandler.GetLearningGroupsResponse:
+    properties:
+      error:
+        type: string
+      learningGroups:
+        $ref: '#/definitions/ssomodels.GetLGroupsResp'
+      status:
+        type: string
+    type: object
+  learninggrouphandler.GetLgByIDResponse:
+    properties:
+      error:
+        type: string
+      learningGroup:
+        $ref: '#/definitions/ssomodels.GetLgByIDResp'
+      status:
+        type: string
+    type: object
+  learninggrouphandler.UpdateLGroupResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  learninggrouphandler.UpdateLearningGroupRequest:
+    properties:
+      group_admins:
+        items:
+          type: string
+        type: array
+      learners:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+    type: object
+  lessonshandler.CreateLessonRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    required:
+    - name
+    type: object
+  lessonshandler.CreateLessonResponse:
+    properties:
+      error:
+        type: string
+      lessonID:
+        type: integer
+      status:
+        type: string
+    type: object
+  lessonshandler.DeleteLessonResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  lessonshandler.GetLessonResponse:
+    properties:
+      error:
+        type: string
+      lesson:
+        $ref: '#/definitions/lpmodels.GetLessonResponse'
+      status:
+        type: string
+    type: object
+  lessonshandler.GetLessonsResponse:
+    properties:
+      error:
+        type: string
+      lessons:
+        items:
+          $ref: '#/definitions/lpmodels.GetLessonResponse'
+        type: array
+      status:
+        type: string
+    type: object
+  lessonshandler.UpdateLessonRequest:
+    properties:
+      description:
+        type: string
+      name:
+        type: string
+    type: object
+  lessonshandler.UpdateLessonResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      updateLessonResponse:
+        $ref: '#/definitions/lpmodels.UpdateLessonResponse'
+    type: object
+  lpmodels.BasePage:
+    properties:
+      content_type:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      last_modified_by:
+        type: string
+      lesson_id:
+        type: integer
+      modified:
+        type: string
+    type: object
+  lpmodels.Channel:
+    properties:
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      lastModifiedBy:
+        type: string
+      modified:
+        type: string
+      name:
+        type: string
+    type: object
+  lpmodels.GetChannelResponse:
+    properties:
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      lastModifiedBy:
+        type: string
+      modified:
+        type: string
+      name:
+        type: string
+      plans:
+        items:
+          $ref: '#/definitions/lpmodels.Plan'
+        type: array
+    type: object
+  lpmodels.GetLessonResponse:
+    properties:
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      lastModifiedBy:
+        type: string
+      modified:
+        type: string
+      name:
+        type: string
+    type: object
+  lpmodels.GetPlanResponse:
+    properties:
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      isPublished:
+        type: boolean
+      lastModifiedBy:
+        type: string
+      modified:
+        type: string
+      name:
+        type: string
+      public:
+        type: boolean
+    type: object
+  lpmodels.GetQuestionPage:
+    properties:
+      answer:
+        type: string
+      content_type:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      last_modified_by:
+        type: string
+      lesson_id:
+        type: integer
+      modified:
+        type: string
+      option_a:
+        type: string
+      option_b:
+        type: string
+      option_c:
+        type: string
+      option_d:
+        type: string
+      option_e:
+        type: string
+      question:
+        type: string
+      question_type:
+        type: string
+    type: object
+  lpmodels.ImagePage:
+    properties:
+      content_type:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      imageFileUrl:
+        type: string
+      imageName:
+        type: string
+      last_modified_by:
+        type: string
+      lesson_id:
+        type: integer
+      modified:
+        type: string
+    type: object
+  lpmodels.LessonAttempt:
+    properties:
+      channelID:
+        type: integer
+      endTime:
+        type: string
+      id:
+        type: integer
+      isComplete:
+        type: boolean
+      isSuccessful:
+        type: boolean
+      lessonID:
+        type: integer
+      percentageScore:
+        type: integer
+      planID:
+        type: integer
+      startTime:
+        type: string
+      userID:
+        type: string
+    type: object
+  lpmodels.PDFPage:
+    properties:
+      content_type:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      last_modified_by:
+        type: string
+      lesson_id:
+        type: integer
+      modified:
+        type: string
+      pdfFileUrl:
+        type: string
+      pdfName:
+        type: string
+    type: object
+  lpmodels.Plan:
+    properties:
+      createdAt:
+        type: string
+      createdBy:
+        type: string
+      description:
+        type: string
+      id:
+        type: integer
+      isPublished:
+        type: boolean
+      lastModifiedBy:
+        type: string
+      modified:
+        type: string
+      name:
+        type: string
+      public:
+        type: boolean
+    type: object
+  lpmodels.QuestionPageAttempt:
+    properties:
+      id:
+        type: integer
+      is_correct:
+        type: boolean
+      lesson_attempt_id:
+        type: integer
+      page_id:
+        type: integer
+      user_answer:
+        type: string
+    type: object
+  lpmodels.UpdateLessonResponse:
+    properties:
+      id:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  lpmodels.UpdatePageResponse:
+    properties:
+      id:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  lpmodels.UpdatePlanResponse:
+    properties:
+      id:
+        type: integer
+      success:
+        type: boolean
+    type: object
+  lpmodels.VideoPage:
+    properties:
+      content_type:
+        type: string
+      created_at:
+        type: string
+      created_by:
+        type: string
+      id:
+        type: integer
+      last_modified_by:
+        type: string
+      lesson_id:
+        type: integer
+      modified:
+        type: string
+      videoFileUrl:
+        type: string
+      videoName:
+        type: string
+    type: object
+  pageshandler.CreateImagePageRequest:
+    properties:
+      image_file_url:
+        type: string
+      image_name:
+        type: string
+    required:
+    - image_file_url
+    - image_name
+    type: object
+  pageshandler.CreatePDFPageRequest:
+    properties:
+      pdf_file_url:
+        type: string
+      pdf_name:
+        type: string
+    required:
+    - pdf_file_url
+    - pdf_name
+    type: object
+  pageshandler.CreatePageResponse:
+    properties:
+      error:
+        type: string
+      pageID:
+        type: integer
+      status:
+        type: string
+    type: object
+  pageshandler.CreateVideoPageRequest:
+    properties:
+      video_file_url:
+        type: string
+      video_name:
+        type: string
+    required:
+    - video_file_url
+    - video_name
+    type: object
+  pageshandler.DeletePageResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  pageshandler.GetImagePageResponse:
+    properties:
+      error:
+        type: string
+      imagePage:
+        $ref: '#/definitions/lpmodels.ImagePage'
+      status:
+        type: string
+    type: object
+  pageshandler.GetPDFPageResponse:
+    properties:
+      error:
+        type: string
+      pdfpage:
+        $ref: '#/definitions/lpmodels.PDFPage'
+      status:
+        type: string
+    type: object
+  pageshandler.GetPagesResponse:
+    properties:
+      error:
+        type: string
+      pages:
+        items:
+          $ref: '#/definitions/lpmodels.BasePage'
+        type: array
+      status:
+        type: string
+    type: object
+  pageshandler.GetVideoPageResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      videoPage:
+        $ref: '#/definitions/lpmodels.VideoPage'
+    type: object
+  pageshandler.UpdateImagePageRequest:
+    properties:
+      image_file_url:
+        type: string
+      image_name:
+        type: string
+    type: object
+  pageshandler.UpdatePDFPageRequest:
+    properties:
+      pdf_file_url:
+        type: string
+      pdf_name:
+        type: string
+    type: object
+  pageshandler.UpdatePageResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      updatePageResponse:
+        $ref: '#/definitions/lpmodels.UpdatePageResponse'
+    type: object
+  pageshandler.UpdateVideoPageRequest:
+    properties:
+      video_file_url:
+        type: string
+      video_name:
+        type: string
+    type: object
+  planshandler.CreatePlanRequest:
+    properties:
+      description:
+        type: string
+      learning_group_id:
+        type: string
+      name:
+        type: string
+    required:
+    - learning_group_id
+    - name
+    type: object
+  planshandler.CreatePlanResponse:
+    properties:
+      error:
+        type: string
+      plan_id:
+        type: integer
+      status:
+        type: string
+    type: object
+  planshandler.DeletePlanResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  planshandler.GetPlanResponse:
+    properties:
+      error:
+        type: string
+      plan:
+        $ref: '#/definitions/lpmodels.GetPlanResponse'
+      status:
+        type: string
+    type: object
+  planshandler.GetPlansResponse:
+    properties:
+      error:
+        type: string
+      plans:
+        items:
+          $ref: '#/definitions/lpmodels.GetPlanResponse'
+        type: array
+      status:
+        type: string
+    type: object
+  planshandler.SharePlanRequest:
+    properties:
+      user_ids:
+        items:
+          type: string
+        type: array
+    required:
+    - user_ids
+    type: object
+  planshandler.SharePlanResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      success:
+        type: boolean
+    type: object
+  planshandler.UpdatePlanRequest:
+    properties:
+      description:
+        type: string
+      is_published:
+        type: boolean
+      name:
+        type: string
+      public:
+        type: boolean
+    type: object
+  planshandler.UpdatePlanResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      updatePlanResponse:
+        $ref: '#/definitions/lpmodels.UpdatePlanResponse'
+    type: object
+  questionshandler.CreatePageResponse:
+    properties:
+      error:
+        type: string
+      pageID:
+        type: integer
+      status:
+        type: string
+    type: object
+  questionshandler.CreateQuestionPageRequest:
+    properties:
+      answer:
+        type: string
+      option_a:
+        type: string
+      option_b:
+        type: string
+      option_c:
+        type: string
+      option_d:
+        type: string
+      option_e:
+        type: string
+      question:
+        type: string
+    required:
+    - answer
+    - option_a
+    - option_b
+    - question
+    type: object
+  questionshandler.GetQuestionPageResponse:
+    properties:
+      error:
+        type: string
+      questionPage:
+        $ref: '#/definitions/lpmodels.GetQuestionPage'
+      status:
+        type: string
+    type: object
+  questionshandler.UpdatePageResponse:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+      updatePageResponse:
+        $ref: '#/definitions/lpmodels.UpdatePageResponse'
+    type: object
+  questionshandler.UpdateQuestinPageRequest:
+    properties:
+      answer:
+        type: string
+      option_a:
+        type: string
+      option_b:
+        type: string
+      option_c:
+        type: string
+      option_d:
+        type: string
+      option_e:
+        type: string
+      question:
+        type: string
+    type: object
+  response.Response:
+    properties:
+      error:
+        type: string
+      status:
+        type: string
+    type: object
+  ssomodels.CheckOTPAndLogIn:
+    properties:
+      code:
+        type: string
+      email:
+        type: string
+    required:
+    - code
+    - email
+    type: object
+  ssomodels.GetLGroupsResp:
+    properties:
+      learningGroups:
+        items:
+          $ref: '#/definitions/ssomodels.LearningGroup'
+        type: array
+    type: object
+  ssomodels.GetLgByIDResp:
+    properties:
+      createdBy:
+        type: string
+      groupAdmins:
+        items:
+          $ref: '#/definitions/ssomodels.GroupAdmins'
+        type: array
+      id:
+        type: string
+      learners:
+        items:
+          $ref: '#/definitions/ssomodels.Learner'
+        type: array
+      modifiedBy:
+        type: string
+      name:
+        type: string
+    type: object
+  ssomodels.GroupAdmins:
+    properties:
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  ssomodels.Learner:
+    properties:
+      email:
+        type: string
+      id:
+        type: string
+      name:
+        type: string
+    type: object
+  ssomodels.LearningGroup:
+    properties:
+      created:
+        type: string
+      createdBy:
+        type: string
+      id:
+        type: string
+      modifiedBy:
+        type: string
+      name:
+        type: string
+      updated:
+        type: string
+    type: object
+  ssomodels.LogIn:
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  ssomodels.LogInViaTg:
+    properties:
+      email:
+        type: string
+    required:
+    - email
+    type: object
+  ssomodels.RegisterUser:
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        minLength: 8
+        type: string
+    required:
+    - email
+    - password
+    type: object
+host: localhost:30000
+info:
+  contact:
+    name: API Support
+  description: The project is only in its initial stages.
+  title: Learning Platform API
+  version: 0.1.0
+paths:
+  /channels:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns channels information relevant for user.
+      parameters:
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/channelshandler.GetChannelsResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Channels not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get channels information
+      tags:
+      - channels
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new channel with the specified
+        data.
+      parameters:
+      - description: Channel creation parameters
+        in: body
+        name: channelshandler.CreateChannelRequest
+        required: true
+        schema:
+          $ref: '#/definitions/channelshandler.CreateChannelRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/channelshandler.CreateChannelResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new channel
+      tags:
+      - channels
+  /channels/{channel_id}/plans/{plan_id}:
+    delete:
+      consumes:
+      - application/json
+      description: This endpoint allows plan id and delete it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/planshandler.DeletePlanResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Plan not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete plan by id
+      tags:
+      - plans
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns plan information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/planshandler.GetPlanResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Plan not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get plan information
+      tags:
+      - plans
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows plan id and update it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: Plan updating parameters
+        in: body
+        name: planshandler.UpdatePlanRequest
+        required: true
+        schema:
+          $ref: '#/definitions/planshandler.UpdatePlanRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/planshandler.UpdatePlanResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Plan not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update channel by id
+      tags:
+      - plans
+  /channels/{channel_id}/plans/{plan_id}/lessons:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns lessons information relevant for user.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/lessonshandler.GetLessonsResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all lessons relevant for user
+      tags:
+      - lessons
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new lesson with the specified
+        data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: Lesson creation parameters
+        in: body
+        name: lessonshandler.CreateLessonRequest
+        required: true
+        schema:
+          $ref: '#/definitions/lessonshandler.CreateLessonRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/lessonshandler.CreateLessonResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new lesson
+      tags:
+      - lessons
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}:
+    delete:
+      consumes:
+      - application/json
+      description: This endpoint allows lesson id and delete it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/lessonshandler.DeleteLessonResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete lesson by id
+      tags:
+      - lessons
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns lesson information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/lessonshandler.GetLessonResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get lesson information
+      tags:
+      - lessons
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows lesson id and update it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: Lesson updating parameters
+        in: body
+        name: lessonshandler.UpdateLessonRequest
+        required: true
+        schema:
+          $ref: '#/definitions/lessonshandler.UpdateLessonRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/lessonshandler.UpdateLessonResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update lesson by id
+      tags:
+      - lessons
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/attempts:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows user, channel, plan, lesson id and create
+        a new lesson attempt with the specified data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/attemptshandler.TryLessonResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new lesson attempt or get it if exist not completed
+      tags:
+      - attempts
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/image_page:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new image page with the
+        specified data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: Image page creation parameters
+        in: body
+        name: pageshandler.CreateImagePageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/pageshandler.CreateImagePageRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/pageshandler.CreatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new image page
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/image_page/{page_id}:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns image information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.GetImagePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get image page information
+      tags:
+      - pages
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows image page id and update it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      - description: Image page updating parameters
+        in: body
+        name: pageshandler.UpdateImagePageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/pageshandler.UpdateImagePageRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.UpdatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update image page by id
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/pages:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns pages information relevant for user.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/pageshandler.GetPagesResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all pages from lesson relevant for user
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/pages/{page_id}:
+    delete:
+      consumes:
+      - application/json
+      description: This endpoint allows page id and delete it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.DeletePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete page by id
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/pdf_page:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new pdf page with the specified
+        data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: PDF page creation parameters
+        in: body
+        name: pageshandler.CreatePDFPageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/pageshandler.CreatePDFPageRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/pageshandler.CreatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new pdf page
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/pdf_page/{page_id}:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns pdf information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.GetPDFPageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get pdf page information
+      tags:
+      - pages
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows pdf page id and update it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      - description: PDF page updating parameters
+        in: body
+        name: pageshandler.UpdatePDFPageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/pageshandler.UpdatePDFPageRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.UpdatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update pdf page by id
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/question_page:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new questin page with the
+        specified data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: Question page creation parameters
+        in: body
+        name: questionshandler.CreateQuestionPageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/questionshandler.CreateQuestionPageRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/questionshandler.CreatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new question page
+      tags:
+      - questions
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/question_page/{page_id}:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns question information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/questionshandler.GetQuestionPageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get question page information
+      tags:
+      - questions
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows question page id and update it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      - description: Question page updating parameters
+        in: body
+        name: questionshandler.UpdateQuestinPageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/questionshandler.UpdateQuestinPageRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/questionshandler.UpdatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Question not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update question page by id
+      tags:
+      - questions
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/video_page:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new video page with the
+        specified data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: Video page creation parameters
+        in: body
+        name: pageshandler.CreateVideoPageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/pageshandler.CreateVideoPageRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/pageshandler.CreatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new video page
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/lessons/{lesson_id}/video_page/{page_id}:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns video information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.GetVideoPageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get video page information
+      tags:
+      - pages
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows video page id and update it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: ID of the page
+        in: path
+        name: page_id
+        required: true
+        type: integer
+      - description: Video page updating parameters
+        in: body
+        name: pageshandler.UpdateVideoPageRequest
+        required: true
+        schema:
+          $ref: '#/definitions/pageshandler.UpdateVideoPageRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/pageshandler.UpdatePageResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update video page by id
+      tags:
+      - pages
+  /channels/{channel_id}/plans/{plan_id}/share:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows plan id and user ids and share with.
+      parameters:
+      - description: Plan shering parameters
+        in: body
+        name: planshandler.SharePlanRequest
+        required: true
+        schema:
+          $ref: '#/definitions/planshandler.SharePlanRequest'
+      - description: ID of the channel
+        in: path
+        name: channel_id
+        required: true
+        type: integer
+      - description: ID of the plan
+        in: path
+        name: plan_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/planshandler.SharePlanResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Channels not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Share plan by id
+      tags:
+      - plans
+  /channels/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This endpoint allows channel id and delete it.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/channelshandler.DeleteChannelResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Channels not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete channel by id
+      tags:
+      - channels
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns channel information by ID.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/channelshandler.GetChannelResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Channel not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get channel information
+      tags:
+      - channels
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows channel id and update it.
+      parameters:
+      - description: Channels getting parameters
+        in: body
+        name: channelshandler.UpdateChannelRequest
+        required: true
+        schema:
+          $ref: '#/definitions/channelshandler.UpdateChannelRequest'
+      - description: ID of the channel
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/channelshandler.GetChannelResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Channels not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update channel by id
+      tags:
+      - channels
+  /channels/{id}/plans:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns plans information relevant for user.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/planshandler.GetPlansResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all plans relevant for user
+      tags:
+      - plans
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to create a new plan with the specified
+        data.
+      parameters:
+      - description: ID of the channel
+        in: path
+        name: id
+        required: true
+        type: integer
+      - description: Plan creation parameters
+        in: body
+        name: planshandler.CreatePlanRequest
+        required: true
+        schema:
+          $ref: '#/definitions/planshandler.CreatePlanRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/planshandler.CreatePlanResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new plan
+      tags:
+      - plans
+  /channels/{id}/share:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows channel id and learning group id and share
+        with.
+      parameters:
+      - description: Channels sharing parameters
+        in: body
+        name: channelshandler.ShareChannelRequest
+        required: true
+        schema:
+          $ref: '#/definitions/channelshandler.ShareChannelRequest'
+      - description: ID of the channel
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/channelshandler.ShareChannelResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Channels not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Share channel by id
+      tags:
+      - channels
+  /check_otp:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to sign in using their email and sends
+        OTP code to chat.
+      parameters:
+      - description: Sign-in parameters
+        in: body
+        name: ssomodels.CheckOTPAndLogIn
+        required: true
+        schema:
+          $ref: '#/definitions/ssomodels.CheckOTPAndLogIn'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authhandler.CheckOTPAndLogInResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: User not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: User Login by telegram bot
+      tags:
+      - auth
+  /learning_group/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: This endpoint allows learning group id and delete it.
+      parameters:
+      - description: ID of the learning group
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/learninggrouphandler.DeleteLGroupResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Delete learning group by id
+      tags:
+      - learning groups
+    get:
+      consumes:
+      - application/json
+      description: This endpoint allows learning group id and returns lg info.
+      parameters:
+      - description: ID of the learning group
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/learninggrouphandler.GetLgByIDResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get learning group by id
+      tags:
+      - learning groups
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows learning group id and update it.
+      parameters:
+      - description: ID of the learning group
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: Getting parameters
+        in: body
+        name: learninggrouphandler.UpdateLearningGroupRequest
+        required: true
+        schema:
+          $ref: '#/definitions/learninggrouphandler.UpdateLearningGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/learninggrouphandler.UpdateLGroupResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update learning group by id
+      tags:
+      - learning groups
+  /learning_groups:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint allows user id and returns all relevant learning
+        groups.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/learninggrouphandler.GetLearningGroupsResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get learning groups relevant for user
+      tags:
+      - learning groups
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows learning group info and create it.
+      parameters:
+      - description: Creating parameters
+        in: body
+        name: learninggrouphandler.CreateLearningGroupRequest
+        required: true
+        schema:
+          $ref: '#/definitions/learninggrouphandler.CreateLearningGroupRequest'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/learninggrouphandler.CreateLGroupResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Create a new learning group
+      tags:
+      - learning groups
+  /lessons/{lesson_id}/attempts:
+    get:
+      consumes:
+      - application/json
+      description: This endpoint returns lesson attempts information relevant for
+        user.
+      parameters:
+      - description: ID of the lesson
+        in: path
+        name: lesson_id
+        required: true
+        type: integer
+      - description: Limit
+        in: query
+        name: limit
+        type: integer
+      - description: Offset
+        in: query
+        name: offset
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/attemptshandler.LessonAttemptsResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Lesson attempts not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "409":
+          description: Conflict
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Get all lesson attempts relevant for user
+      tags:
+      - attempts
+  /lessons/attempts/{lesson_attempt_id}:
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows question page attempt id and update it.
+      parameters:
+      - description: ID of the lesson attempt
+        in: path
+        name: lesson_attempt_id
+        required: true
+        type: integer
+      - description: Question page attempt updating parameters
+        in: body
+        name: attemptshandler.UpdatePageAttemptRequest
+        required: true
+        schema:
+          $ref: '#/definitions/attemptshandler.UpdatePageAttemptRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/attemptshandler.UpdatePageAttemptResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Question page attempt not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Update question page attempt by id
+      tags:
+      - attempts
+  /lessons/attempts/{lesson_attempt_id}/complete:
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allows lesson attempt id and update it.
+      parameters:
+      - description: ID of the lesson attempt
+        in: path
+        name: lesson_attempt_id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/attemptshandler.UpdatePageAttemptResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: Question page attempt not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Complete lesson attempt by id
+      tags:
+      - attempts
+  /profile/update_info:
+    patch:
+      consumes:
+      - application/json
+      description: This endpoint allow users to change their profile.
+      parameters:
+      - description: Sign-in parameters
+        in: body
+        name: authhandler.UpdateUserInfoReq
+        required: true
+        schema:
+          $ref: '#/definitions/authhandler.UpdateUserInfoReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authhandler.UpdateUserInfoResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      security:
+      - ApiKeyAuth: []
+      summary: Change self user info
+      tags:
+      - auth
+  /sing_in:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to sign in using their email and password.
+      parameters:
+      - description: Sign-in parameters
+        in: body
+        name: ssomodels.LogIn
+        required: true
+        schema:
+          $ref: '#/definitions/ssomodels.LogIn'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authhandler.SingInResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: User not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: User Login
+      tags:
+      - auth
+  /sing_in_by_tg:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to sign in using their email and sends
+        OTP code to chat.
+      parameters:
+      - description: Sign-in parameters
+        in: body
+        name: ssomodels.LogInViaTg
+        required: true
+        schema:
+          $ref: '#/definitions/ssomodels.LogInViaTg'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/authhandler.SingInByTgResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "404":
+          description: User not found
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: User Login by telegram bot
+      tags:
+      - auth
+  /sing_up:
+    post:
+      consumes:
+      - application/json
+      description: This endpoint allows users to register with an email and password.
+      parameters:
+      - description: Registration parameters
+        in: body
+        name: ssomodels.RegisterUser
+        required: true
+        schema:
+          $ref: '#/definitions/ssomodels.RegisterUser'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/authhandler.SingUpResponse'
+        "400":
+          description: Invalid data in the request
+          schema:
+            $ref: '#/definitions/response.Response'
+        "500":
+          description: Server error
+          schema:
+            $ref: '#/definitions/response.Response'
+      summary: Register a new user
+      tags:
+      - auth
+security:
+- ApiKeyAuth: []
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

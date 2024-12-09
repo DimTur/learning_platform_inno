@@ -1,0 +1,4 @@
+./vscode
+test_data.md
+*.pem
+not-configmap-local.yaml

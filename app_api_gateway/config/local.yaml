@@ -1,0 +1,27 @@
+http_server:
+  address: ":8000"
+  timeout: "2s"
+  iddle_timeout: "60s"
+clients:
+  sso:
+    address: ":8081"
+    timeout: "2s"
+    retries_count: 3
+    insecure: false
+  lp:
+    address: ":8002"
+    timeout: "2s"
+    retries_count: 3
+    insecure: false
+tracer:
+  opentelemetry:
+    address: "localhost:4318"
+    service_name: "api_gateway"
+meter:
+  prometheus:
+    service_name: "api_gateway"
+redis:
+  host: localhost
+  port: 6379
+  permissions_db: 2
+  password: ""

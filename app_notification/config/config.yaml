@@ -1,0 +1,35 @@
+server:
+  host: "localhost"
+  port: 8003
+telegram_bot:
+  tg_bot_token: ""
+  tg_bot_host: "api.telegram.org"
+  batch_size: 100
+rabbit_mq:
+  username: guest
+  password: guest
+  host: localhost
+  port: 5672
+  otp:
+    otp_consumer:
+      queue: otp
+      consumer: ""
+      autoAck: false
+      exclusive: false
+      noLocal: false
+      noWait: false
+      args:
+        x-consumer-timeout: 60000
+        x-consumer-prefetch-count: 5
+  notification:
+    notification_consumer:
+      queue: notification
+      consumer: ""
+      autoAck: false
+      exclusive: false
+      noLocal: false
+      noWait: false
+      args:
+        x-consumer-timeout: 60000
+        x-consumer-prefetch-count: 5
+  

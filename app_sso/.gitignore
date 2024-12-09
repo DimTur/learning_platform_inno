@@ -1,0 +1,10 @@
+./vscode
+./bin
+./build
+*.key
+*.pub
+*.pem
+local.yaml
+commands.md
+*.db
+mongo_test.go
